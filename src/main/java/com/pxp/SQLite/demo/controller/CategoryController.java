@@ -26,7 +26,7 @@ public class CategoryController {
     @RequestMapping(value = "category/add", method = RequestMethod.POST)
     public Category addCategory(@RequestBody Category category){ return this.categoryService.addCategory(category);}
 
-    @RequestMapping(value = "category/book", method = RequestMethod.POST)
+    @RequestMapping(value = "category/add/book", method = RequestMethod.POST)
     public Category addCategoryBook(@RequestBody BookCategory book){return this.categoryService.addCategoryBook(book);}
 
     @RequestMapping(value = "category/{id}/books", method = RequestMethod.GET)

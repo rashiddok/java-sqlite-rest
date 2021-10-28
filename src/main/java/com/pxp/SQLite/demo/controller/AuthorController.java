@@ -24,7 +24,7 @@ public class AuthorController {
     @RequestMapping(value = "author/add", method = RequestMethod.POST)
     public Author addAuthor(@RequestBody Author author){return this.authorService.addAuthor(author);}
 
-    @RequestMapping(value = "author/book", method = RequestMethod.POST)
+    @RequestMapping(value = "author/book/add", method = RequestMethod.POST)
     public Author addAuthorBook(@RequestBody BookAuthor book){return this.authorService.addAuthorBook(book);}
 
     @RequestMapping(value = "author/{id}/books", method = RequestMethod.GET)

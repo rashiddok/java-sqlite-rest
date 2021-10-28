@@ -16,12 +16,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "createuser", method = RequestMethod.POST)
+    @RequestMapping(value = "user/create", method = RequestMethod.POST)
     public String createUser(@RequestBody User user){
         return userService.createUser(user);
     }
 
-    @RequestMapping(value = "getusers", method = RequestMethod.GET)
+    @RequestMapping(value = "users", method = RequestMethod.GET)
     public List<User> createUser(){
         return userService.readUsers();
     }

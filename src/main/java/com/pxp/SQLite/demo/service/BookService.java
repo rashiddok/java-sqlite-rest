@@ -27,24 +27,26 @@ public class BookService {
     }
 
     @Transactional
-    public void updateBook(Book book){
+    public Book updateBook(Book book){
         if(this.bookRepository.findById(book.getId()).isPresent()){
             Book bookToUpdate = this.bookRepository.findById(book.getId()).get();
             bookToUpdate.setValues(book);
             bookRepository.save(bookToUpdate);
+            return  bookToUpdate;
         };
-    }
-
-    @Transactional
-    public void deleteBook(Book book){
-        if(this.bookRepository.findById(book.getId()).isPresent()){
-            Book bookToDelete = this.bookRepository.findById(book.getId()).get();
-            this.bookRepository.delete((bookToDelete));
-        }
+        return null;
     }
 
     @Transactional
     public Optional<Book> getBook(Integer id){return this.bookRepository.findById(id);};
+
+    @Transactional
+    public void deleteBook(Integer id){
+        if(this.bookRepository.findById(id).isPresent()){
+            Book bookToDelete = this.bookRepository.findById(id).get();
+            this.bookRepository.delete(bookToDelete);
+        }
+    };
 
 
 }
