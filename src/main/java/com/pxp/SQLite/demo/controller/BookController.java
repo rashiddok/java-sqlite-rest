@@ -7,10 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class BookController {
 
     @Autowired
@@ -20,7 +21,7 @@ public class BookController {
     public List<Book> getBooks(){ return this.bookService.getBooks();}
 
     @RequestMapping(value = "book/add", method = RequestMethod.POST)
-    public void addBook(@RequestBody Book book){this.bookService.addBook(book);}
+    public Book addBook(@RequestBody Book book){return this.bookService.addBook(book);}
 
     @RequestMapping(value = "book/update", method = RequestMethod.POST)
     public void updateBook(@RequestBody Book book){this.bookService.updateBook(book);}

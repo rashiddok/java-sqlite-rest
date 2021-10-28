@@ -1,6 +1,7 @@
 package com.pxp.SQLite.demo.service;
 
 
+import com.pxp.SQLite.demo.entity.Author;
 import com.pxp.SQLite.demo.entity.Book;
 import com.pxp.SQLite.demo.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -19,8 +21,9 @@ public class BookService {
     public List<Book> getBooks(){ return this.bookRepository.findAll();}
 
     @Transactional
-    public void addBook(Book book){
+    public Book addBook(Book book){
         this.bookRepository.save(book);
+        return book;
     }
 
     @Transactional
@@ -39,6 +42,9 @@ public class BookService {
             this.bookRepository.delete((bookToDelete));
         }
     }
+
+    @Transactional
+    public Optional<Book> getBook(Integer id){return this.bookRepository.findById(id);};
 
 
 }
