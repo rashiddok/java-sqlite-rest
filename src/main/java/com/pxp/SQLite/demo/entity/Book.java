@@ -16,7 +16,11 @@ public class Book {
 
     private String year;
 
-    private String isbn;
+    private String issuedBy;
+
+    private String cover;
+
+    private String link;
 
     private String description;
 
@@ -36,6 +40,14 @@ public class Book {
         this.id = id;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
     public String getName(){
         return this.name;
     }
@@ -43,11 +55,20 @@ public class Book {
         this.name = name;
     }
 
-    public String getIsbn(){
-        return this.isbn;
+    public String getIssuedBy() {
+        return issuedBy;
     }
-    public void setIsbn(String isbn){
-        this.isbn = isbn;
+
+    public void setIssuedBy(String issuedBy) {
+        this.issuedBy = issuedBy;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
     public String getYear(){
@@ -91,7 +112,8 @@ public class Book {
         this.description = book.description;
         this.name = book.name;
         this.year = book.year;
-        this.isbn = book.isbn;
+        this.cover = book.cover;
+        this.issuedBy = book.issuedBy;
         this.pages = book.pages;
     }
 
@@ -101,7 +123,6 @@ public class Book {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", year=" + year +
-                ", isbn=" + isbn +
                 ", pages=" + pages +
                 ", description=" + description +
                 '}';

@@ -31,6 +31,8 @@ public class BookService {
         if(this.bookRepository.findById(book.getId()).isPresent()){
             Book bookToUpdate = this.bookRepository.findById(book.getId()).get();
             bookToUpdate.setValues(book);
+            System.out.println(book.getLink());
+            bookToUpdate.setLink(book.getLink());
             bookRepository.save(bookToUpdate);
             return  bookToUpdate;
         };
